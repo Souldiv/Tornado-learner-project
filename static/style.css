@@ -1,0 +1,60 @@
+        html{
+            /*overflow-x: hidden;*/
+            /*overflow-y: hidden;*/
+        }
+          body{
+                background: url("resources/shades.jpg") no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+                color: white;
+          }
+          .image-t{
+              height: 25px;
+              position: relative;
+              top: -8px;
+          }
+          .bar{
+              width: 25em;
+              height: 25%;
+              padding-top: 5%;
+              padding-left: 3.5%;
+              padding-right:3%;
+              padding-bottom:5%;
+              color: #e3f2fd;
+          }
+          .vcenter {
+            margin-top: 10%;
+            vertical-align: middle;
+        }
+          small{
+              position: relative;
+              left: 9.5em;
+          }
+          .centerize{
+              width: 30%;
+          }
+          .center{
+              width: 35%;
+          }
+          .inner{
+              margin-left:10px;
+              margin-right:10px;
+          }
+            @media (max-width: 1024px) and (min-width: 360px){
+                .vcenter{
+                    margin-top: 30%;
+                }
+
+            }
+        .carp{
+            position: relative;
+            left: 7em;
+        }
+        @media (max-width: 767px) {
+            .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
+                margin-right: -20px;
+                margin-left: -20px;
+            }
+        }

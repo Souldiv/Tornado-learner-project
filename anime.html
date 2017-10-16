@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Anime</title>
+<head>
+    <title> Signup </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ static_url("signup.css")}}">
+    <link rel="stylesheet" href="{{ static_url("font-awesome-4.7.0/css/font-awesome.min.css")}}"
+    <link rel="stylesheet" href="{{ static_url("bootstrap-social-gh-pages/assets/css/bootstrap.css")}}">
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="NAV">
+      <a class="navbar-brand" href="http://www.tornadoweb.org/en/stable/">
+          <img src="{{ static_url("resources\TornadoWebServerLogo.png")}}" id="brand" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/"> About <span class="sr-only">(About)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/search"> Search <span class="sr-only">(Search)</span></a>
+            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Completed">Completed</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#On-Hold">Onhold</a>
+                </li>
+              <li class="nav-item">
+                    <a class="nav-link" href="#watching">Watching</a>
+                </li>
+              <li class="nav-item">
+                    <a class="nav-link" href="#dropped">Dropped</a>
+                </li>
+              <li class="nav-item">
+                    <a class="nav-link" href="#plans">Plan to watch</a>
+                </li>
+          </ul>
+          <span class="navbar-text">
+              <a class="btn btn-social-icon btn-github" href="https://github.com/Souldiv">
+                  <span class="fa fa-github fa-lg"></span>
+              </a>
+          </span>
+      </div>
+ </nav>
+ {% set data = xml_data[0] %}
+<div class="container" data-spy="scroll" data-target="#NAV" data-offset="-10px">
+    <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+        <div class="card-header">User details</div>
+        <div class="card-body">
+            <h4 class="card-title">{{data[1].text}}</h4>
+            <p class="card-text">
+                <span class="item-attributes"><strong>Watching: </strong></span>{{data[2].text}}<br>
+                <span class="item-attributes"><strong>Completed: </strong></span>{{data[3].text}}<br>
+                <span class="item-attributes"><strong>Onhold: </strong></span>{{data[4].text}}<br>
+                <span class="item-attributes"><strong>Dropped: </strong></span>{{data[5].text}}<br>
+                <span class="item-attributes"><strong>Plan to watch: </strong></span>{{data[6].text}}<br>
+                <span class="item-attributes"><strong>Days Spent: </strong></span>{{data[7].text}}<br>
+            </p>
+        </div>
+    </div>
+    <h2 id="Completed">Completed</h2>
+    {% for child in xml_data.iter("anime")%}
+    {% if child[14].text == '2'%}
+    <div class="rounded bg-dark item-body row">
+        <div class="item-image col-md-3">
+        <img class="img-fluid druid" src={{child[8].text}}>
+        </div>
+        <div class="item-content col-md-9">
+            <div class="inner-content">
+                <div class="Heading">
+                    <h1 class="alert-heading">{{child[1].text}}</h1>
+                    <hr class="ruler">
+                    <p class="lead font-italic">{{child[2].text}}</p>
+                </div>
+                <span class="item-attributes"><strong>Episodes:</strong></span> {{child[4].text}}
+                <span class="item-attributes"><strong>Your Score:</strong></span> {{child[13].text}}
+                <span class="item-attributes"><strong>Start date:</strong></span> {{child[6].text}}
+                <span class="item-attributes"><strong>End date:</strong></span> {{child[7].text}}
+                <br>
+                <span class="item-attributes"><strong>Watched Episodes: </strong></span> {{child[10].text}}
+                <span class="item-attributes"><strong>Your Start date: </strong></span> {{child[11].text}}
+                <span class="item-attributes"><strong>Finish date:</strong></span> {{child[12].text}}
+            </div>
+        </div>
+    </div>
+    {%end%}
+    {%end%}
+    <h2 id="On-Hold">On Hold</h2>
+    {% for child in xml_data.iter("anime")%}
+    {% if child[14].text == '3'%}
+    <div class="rounded bg-dark item-body row">
+        <div class="item-image col-md-3">
+        <img class="img-fluid druid" src={{child[8].text}}>
+        </div>
+        <div class="item-content col-md-9">
+            <div class="inner-content">
+                <div class="Heading">
+                    <h1 class="alert-heading">{{child[1].text}}</h1>
+                    <hr class="ruler">
+                    <p class="lead font-italic">{{child[2].text}}</p>
+                </div>
+                <span class="item-attributes"><strong>Episodes:</strong></span> {{child[4].text}}
+                <span class="item-attributes"><strong>Your Score:</strong></span> {{child[13].text}}
+                <span class="item-attributes"><strong>Start date:</strong></span> {{child[6].text}}
+                <span class="item-attributes"><strong>End date:</strong></span> {{child[7].text}}
+                <br>
+                <span class="item-attributes"><strong>Watched Episodes: </strong></span> {{child[10].text}}
+                <span class="item-attributes"><strong>Your Start date: </strong></span> {{child[11].text}}
+                <span class="item-attributes"><strong>Finish date:</strong></span> {{child[12].text}}
+            </div>
+        </div>
+    </div>
+    {%end%}
+    {%end%}
+    <h2 id="watching">Watching</h2>
+    {% for child in xml_data.iter("anime")%}
+    {% if child[14].text == '1'%}
+    <div class="rounded bg-dark item-body row">
+        <div class="item-image col-md-3">
+        <img class="img-fluid druid" src={{child[8].text}}>
+        </div>
+        <div class="item-content col-md-9">
+            <div class="inner-content">
+                <div class="Heading">
+                    <h1 class="alert-heading">{{child[1].text}}</h1>
+                    <hr class="ruler">
+                    <p class="lead font-italic">{{child[2].text}}</p>
+                </div>
+                <span class="item-attributes"><strong>Episodes:</strong></span> {{child[4].text}}
+                <span class="item-attributes"><strong>Your Score:</strong></span> {{child[13].text}}
+                <span class="item-attributes"><strong>Start date:</strong></span> {{child[6].text}}
+                <span class="item-attributes"><strong>End date:</strong></span> {{child[7].text}}
+                <br>
+                <span class="item-attributes"><strong>Watched Episodes: </strong></span> {{child[10].text}}
+                <span class="item-attributes"><strong>Your Start date: </strong></span> {{child[11].text}}
+                <span class="item-attributes"><strong>Finish date:</strong></span> {{child[12].text}}
+            </div>
+        </div>
+    </div>
+    {%end%}
+    {%end%}
+    <h2 id="dropped">Dropped</h2>
+    {% for child in xml_data.iter("anime")%}
+    {% if child[14].text == '4'%}
+    <div class="rounded bg-dark item-body row">
+        <div class="item-image col-md-3">
+        <img class="img-fluid druid" src={{child[8].text}}>
+        </div>
+        <div class="item-content col-md-9">
+            <div class="inner-content">
+                <div class="Heading">
+                    <h1 class="alert-heading">{{child[1].text}}</h1>
+                    <hr class="ruler">
+                    <p class="lead font-italic">{{child[2].text}}</p>
+                </div>
+                <span class="item-attributes"><strong>Episodes:</strong></span> {{child[4].text}}
+                <span class="item-attributes"><strong>Your Score:</strong></span> {{child[13].text}}
+                <span class="item-attributes"><strong>Start date:</strong></span> {{child[6].text}}
+                <span class="item-attributes"><strong>End date:</strong></span> {{child[7].text}}
+                <br>
+                <span class="item-attributes"><strong>Watched Episodes: </strong></span> {{child[10].text}}
+                <span class="item-attributes"><strong>Your Start date: </strong></span> {{child[11].text}}
+                <span class="item-attributes"><strong>Finish date:</strong></span> {{child[12].text}}
+            </div>
+        </div>
+    </div>
+    {%end%}
+    {%end%}
+    <h2 id="plans">Plan to watch</h2>
+    {% for child in xml_data.iter("anime")%}
+    {% if child[14].text == '6'%}
+    <div class="rounded bg-dark item-body row">
+        <div class="item-image col-md-3">
+        <img class="img-fluid druid" src={{child[8].text}}>
+        </div>
+        <div class="item-content col-md-9">
+            <div class="inner-content">
+                <div class="Heading">
+                    <h1 class="alert-heading">{{child[1].text}}</h1>
+                    <hr class="ruler">
+                    <p class="lead font-italic">{{child[2].text}}</p>
+                </div>
+                <span class="item-attributes"><strong>Episodes:</strong></span> {{child[4].text}}
+                <span class="item-attributes"><strong>Your Score:</strong></span> {{child[13].text}}
+                <span class="item-attributes"><strong>Start date:</strong></span> {{child[6].text}}
+                <span class="item-attributes"><strong>End date:</strong></span> {{child[7].text}}
+                <br>
+                <span class="item-attributes"><strong>Watched Episodes: </strong></span> {{child[10].text}}
+                <span class="item-attributes"><strong>Your Start date: </strong></span> {{child[11].text}}
+                <span class="item-attributes"><strong>Finish date:</strong></span> {{child[12].text}}
+            </div>
+        </div>
+    </div>
+    {%end%}
+    {%end%}
+</div>
+</body>
+</html>

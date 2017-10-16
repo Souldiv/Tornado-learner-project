@@ -1,0 +1,48 @@
+body{
+                background: url("resources/tokyo.jpg") no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+                color: white;
+          }
+        #brand{
+              height: 25px;
+              position: relative;
+              top: -8px;
+        }
+
+        @media (max-width: 767px) {
+            .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
+                margin-right: -20px;
+                margin-left: -20px;
+            }
+        }
+        .featurette {
+            display: table;
+            width: 70%;
+            vertical-align: middle;
+            color: #fff;
+            margin:20% 10% 25% 15%;
+        }
+        .featurette-inner {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .featurette .search {
+            padding: 3%;
+            max-width: 980px; /*max width of search*/
+            margin: 0 auto;
+        }
+        .no-margin-top {
+            margin-top: 0
+        }
+
+
+        /* ------ form-control-lg */
+        .form-control-lg {
+            min-height: 46px;
+            border-radius: 6px;
+            font-size: 18px;
+            line-height: normal;
+        }
