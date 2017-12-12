@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+      <link rel="stylesheet" href="/stylesheets/style.css">
+      <title> Login </title>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-fixed-top">
+      <a class="navbar-brand" href="http://www.tornadoweb.org/en/stable/">
+        <img src="/images/TornadoWebServerLogo.png" class="image-t" alt="">
+      </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+    <a class="nav-link" href="/"> About <span class="sr-only">(About)</span></a>
+    </li>
+    <li class="nav-item active">
+    <a class="nav-link" href="/login"> Login <span class="sr-only">(Login)</span></a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="/Signup"> Signup <span class="sr-only">(Signup)</span></a>
+    </li>
+    </ul>
+  </div>
+  </nav>
+  <div class="container h-100">
+      <div class="row h-100 justify-content-center align-items-center vcenter">
+          <div class="bar rounded bg-dark">
+          <div class="mx-auto centerize">
+              <h2>Login</h2>
+          </div>
+          <br>
+            <div class="inner">
+              <form class="was-validated" method="post" action="/login">
+              <div class="form-group row">
+                    <label for="hell" class="control-label col-4 form-inline"><strong>Username:</strong></label>
+                    <input class="form-control col-6 form-control-sm is-invalid" name="user" id="hell" placeholder="E.g. John doe" required>
+              </div>
+              <div class="form-group row">
+                    <label for="pass" class="control-label col-4"><strong>Password:</strong></label>
+                    <input type="password" class="form-control col-6 form-control-sm" name="pass" id="pass" placeholder="Password" required>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="rep"> Remember Password</label>
+                </div>
+              </div>
+              <div class="mx-auto">
+                  <input type="submit" class="btn btn-primary btn-block" value="Submit">
+              </div>
+              </form>
+                <a class="d-block small mt-3 carp" href="/Signup">Register an Account</a>
+            </div>
+          </div>
+      </div>
+  </div>
+  <% if(locals.FlashMessage){%>
+  <div class="container error">
+      <%= locals.FlashMessage%>
+  </div>
+  <%}%>
+  </body>
+</html>

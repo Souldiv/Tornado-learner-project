@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Anime</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/signup.css">
+    <link rel="stylesheet" href="/stylesheets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-social-gh-pages/assets/css/bootstrap.css">
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="NAV">
+      <a class="navbar-brand" href="http://www.tornadoweb.org/en/stable/">
+          <img src="/images/TornadoWebServerLogo.png" id="brand" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/"> About <span class="sr-only">(About)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/search"> Search <span class="sr-only">(Search)</span></a>
+            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Completed">Completed</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#On-Hold">Onhold</a>
+                </li>
+              <li class="nav-item">
+                    <a class="nav-link" href="#watching">Watching</a>
+                </li>
+              <li class="nav-item">
+                    <a class="nav-link" href="#dropped">Dropped</a>
+                </li>
+              <li class="nav-item">
+                    <a class="nav-link" href="#plans">Plan to watch</a>
+                </li>
+          </ul>
+          <span class="navbar-text">
+              <a class="btn btn-social-icon btn-github" href="https://github.com/Souldiv">
+                  <span class="fa fa-github fa-lg"></span>
+              </a>
+          </span>
+      </div>
+ </nav>
+ <%= data %>
+<div class="container" data-spy="scroll" data-target="#NAV" data-offset="-10px">
+    <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+        <div class="card-header">User details</div>
+        <div class="card-body">
+            <% var stats = data['stats']%>
+            <h4 class="card-title"><%= stats['undefined'] %></h4>
+            <p class="card-text">
+                <span class="item-attributes"><strong>Watching: </strong></span><%= stats['nbWatching'] %><br>
+                <span class="item-attributes"><strong>Completed: </strong></span><%= stats['nbCompleted'] %><br>
+                <span class="item-attributes"><strong>Onhold: </strong></span><%= stats['nbOnHold'] %><br>
+                <span class="item-attributes"><strong>Dropped: </strong></span><%= stats['nbDropped'] %><br>
+                <span class="item-attributes"><strong>Plan to watch: </strong></span><%= stats['nbPlanToWatch'] %><br>
+                <span class="item-attributes"><strong>Days Spent: </strong></span><%= stats['nbDaysSpentWatching'] %><br>
+            </p>
+        </div>
+    </div>
+    <h2 id="Completed" style="color: white">Completed</h2>
+    <!--{% for child in xml_data.iter("anime")%}-->
+    <!--{% if child[14].text == '2'%}-->
+    <% data['lists'].forEach(function (element){ if(element['status'] === '2'){%>
+    <div class="rounded bg-dark item-body row">
+        <div class="item-image col-md-3">
+        <img class="img-fluid druid" src=<%= element['picture'] %>>
+        </div>
+        <div class="item-content col-md-9">
+            <div class="inner-content">
+                <div class="Heading">
+                    <h1 class="alert-heading"><%= element['title'] %></h1>
+                    <hr class="ruler">
+                    <p class="lead font-italic"><%= element['synonyms'] %></p>
+                </div>
+                <span class="item-attributes"><strong>Episodes:</strong></span> <%= element['nbEpisodes'] %>
+                <span class="item-attributes"><strong>Your Score:</strong></span> <%= element['score'] %>
+                <span class="item-attributes"><strong>Start date:</strong></span> <%= element['seriesStart'] %>
+                <span class="item-attributes"><strong>End date:</strong></span> <%= element['seriesEnd'] %>
+                <br>
+                <span class="item-attributes"><strong>Watched Episodes: </strong></span> <%= element['nbWatchedEpisode'] %>
+                <span class="item-attributes"><strong>Your Start date: </strong></span> <%= element['myStartDate'] %>
+                <span class="item-attributes"><strong>Finish date:</strong></span> <%= element['myEndDate'] %>
+            </div>
+        </div>
+    </div>
+    <%}})%>
+    <h2 id="On-Hold" style="color: white">On Hold</h2>
+    <% data['lists'].forEach(function (element){ if(element['status'] === '3'){%>
+    <div class="rounded bg-dark item-body row">
+        <div class="item-image col-md-3">
+            <img class="img-fluid druid" src=<%= element['picture'] %>>
+        </div>
+        <div class="item-content col-md-9">
+            <div class="inner-content">
+                <div class="Heading">
+                    <h1 class="alert-heading"><%= element['title'] %></h1>
+                    <hr class="ruler">
+                    <p class="lead font-italic"><%= element['synonyms'] %></p>
+                </div>
+                <span class="item-attributes"><strong>Episodes:</strong></span> <%= element['nbEpisodes'] %>
+                <span class="item-attributes"><strong>Your Score:</strong></span> <%= element['score'] %>
+                <span class="item-attributes"><strong>Start date:</strong></span> <%= element['seriesStart'] %>
+                <span class="item-attributes"><strong>End date:</strong></span> <%= element['seriesEnd'] %>
+                <br>
+                <span class="item-attributes"><strong>Watched Episodes: </strong></span> <%= element['nbWatchedEpisode'] %>
+                <span class="item-attributes"><strong>Your Start date: </strong></span> <%= element['myStartDate'] %>
+                <span class="item-attributes"><strong>Finish date:</strong></span> <%= element['myEndDate'] %>
+            </div>
+        </div>
+    </div>
+    <%}})%>
+    <h2 id="watching" style="color: white">Watching</h2>
+    <% data['lists'].forEach(function (element){ if(element['status'] === '1'){%>
+    <div class="rounded bg-dark item-body row">
+        <div class="item-image col-md-3">
+            <img class="img-fluid druid" src=<%= element['picture'] %>>
+        </div>
+        <div class="item-content col-md-9">
+            <div class="inner-content">
+                <div class="Heading">
+                    <h1 class="alert-heading" style="color: white"><%= element['title'] %></h1>
+                    <hr class="ruler">
+                    <p class="lead font-italic" style="color: white"><%= element['synonyms'] %></p>
+                </div>
+                <span class="item-attributes"><strong>Episodes:</strong></span> <%= element['nbEpisodes'] %>
+                <span class="item-attributes"><strong>Your Score:</strong></span> <%= element['score'] %>
+                <span class="item-attributes"><strong>Start date:</strong></span> <%= element['seriesStart'] %>
+                <span class="item-attributes"><strong>End date:</strong></span> <%= element['seriesEnd'] %>
+                <br>
+                <span class="item-attributes"><strong>Watched Episodes: </strong></span> <%= element['nbWatchedEpisode'] %>
+                <span class="item-attributes"><strong>Your Start date: </strong></span> <%= element['myStartDate'] %>
+                <span class="item-attributes"><strong>Finish date:</strong></span> <%= element['myEndDate'] %>
+            </div>
+        </div>
+    </div>
+    <%}})%>
+    <h2 id="dropped" style="color: white">Dropped</h2>
+    <% data['lists'].forEach(function (element){ if(element['status'] === '4'){%>
+    <div class="rounded bg-dark item-body row">
+        <div class="item-image col-md-3">
+            <img class="img-fluid druid" src=<%= element['picture'] %>>
+        </div>
+        <div class="item-content col-md-9">
+            <div class="inner-content">
+                <div class="Heading">
+                    <h1 class="alert-heading" style="color: white"><%= element['title'] %></h1>
+                    <hr class="ruler">
+                    <p class="lead font-italic" style="color: white"><%= element['synonyms'] %></p>
+                </div>
+                <span class="item-attributes"><strong>Episodes:</strong></span> <%= element['nbEpisodes'] %>
+                <span class="item-attributes"><strong>Your Score:</strong></span> <%= element['score'] %>
+                <span class="item-attributes"><strong>Start date:</strong></span> <%= element['seriesStart'] %>
+                <span class="item-attributes"><strong>End date:</strong></span> <%= element['seriesEnd'] %>
+                <br>
+                <span class="item-attributes"><strong>Watched Episodes: </strong></span> <%= element['nbWatchedEpisode'] %>
+                <span class="item-attributes"><strong>Your Start date: </strong></span> <%= element['myStartDate'] %>
+                <span class="item-attributes"><strong>Finish date:</strong></span> <%= element['myEndDate'] %>
+            </div>
+        </div>
+    </div>
+    <%}})%>
+    <h2 id="plans" style="color: white">Plan to watch</h2>
+    <% data['lists'].forEach(function (element){ if(element['status'] === '6'){%>
+    <div class="rounded bg-dark item-body row">
+        <div class="item-image col-md-3">
+            <img class="img-fluid druid" src=<%= element['picture'] %>>
+        </div>
+        <div class="item-content col-md-9">
+            <div class="inner-content">
+                <div class="Heading">
+                    <h1 class="alert-heading" style="color: white"><%= element['title'] %></h1>
+                    <hr class="ruler">
+                    <p class="lead font-italic" style="color: white"><%= element['synonyms'] %></p>
+                </div>
+                <span class="item-attributes"><strong>Episodes:</strong></span> <%= element['nbEpisodes'] %>
+                <span class="item-attributes"><strong>Your Score:</strong></span> <%= element['score'] %>
+                <span class="item-attributes"><strong>Start date:</strong></span> <%= element['seriesStart'] %>
+                <span class="item-attributes"><strong>End date:</strong></span> <%= element['seriesEnd'] %>
+                <br>
+                <span class="item-attributes"><strong>Watched Episodes: </strong></span> <%= element['nbWatchedEpisode'] %>
+                <span class="item-attributes"><strong>Your Start date: </strong></span> <%= element['myStartDate'] %>
+                <span class="item-attributes"><strong>Finish date:</strong></span> <%= element['myEndDate'] %>
+            </div>
+        </div>
+    </div>
+    <%}})%>
+</div>
+</body>
+</html>

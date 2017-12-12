@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title> Signup </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/search.css">
+    <link rel="stylesheet" href="/stylesheets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-social-gh-pages/assets/css/bootstrap.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="http://www.tornadoweb.org/en/stable/">
+          <img src="/images/TornadoWebServerLogo.png" id="brand" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/"> About <span class="sr-only">(About)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/search"> Search <span class="sr-only">(Search)</span></a>
+            </li>
+          </ul>
+          <form class="form-inline" action="/logout">
+            <button class="logout btn btn-sm align-middle btn-outline-danger" value="logout">Log out</button>
+          </form>
+          <!--<span class="navbar-text">-->
+              <!--<a class="ga btn btn-social-icon btn-github" href="https://github.com/Souldiv">-->
+                <!--<span class="fa fa-github fa-lg"></span>-->
+              <!--</a>-->
+          <!--</span>-->
+      </div>
+</nav>
+<div class="container">
+<div class="featurette">
+   <div class="featurette-inner text-center was-validated">
+      <form class="search" action="/anime" method="get">
+         <h2 class="no-margin-top">Enter a username</h2>
+         <div class="input-group">
+            <input type="search" placeholder="search" name="search" class="form-control" required>
+            <span class="input-group-btn">
+            <input type="submit" class="btn btn-dark">
+            </span>
+         </div>
+         <!-- /input-group -->
+      </form>
+      <!-- /.max-width on this form -->
+   </div>
+   <!-- /.featurette-inner (display:table-cell) -->
+</div>
+<!-- /.featurette (display:table) -->
+</div>
+</body>
+</html>
